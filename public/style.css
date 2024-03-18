@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+@import url('nav.css');
 
 :root {
     --bg-color: #171717;
     --text-color: #CECECE;
-    --primary-color: #598978;
-    --secondary-color: #87ceb5;
+    --primary-color: #7adaa7;
+    --secondary-color: #a0e5cd;
 }
 
 body {
@@ -21,10 +22,15 @@ h1 {
     font-family: "Roboto", sans-serif;
     font-weight: 900;
     font-style: normal;
+    color: var(--primary-color);
 }
 
 h2, h3 {
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-style: normal;
+}
+
+a{
+    color: var(--secondary-color);
 }
