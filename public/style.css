@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
 @import url('nav.css');
-
+@import url('sdg.css');
 :root {
     --bg-color: #171717;
     --text-color: #CECECE;
@@ -35,20 +35,3 @@ a{
     color: var(--secondary-color);
 }
 
-.sdg{
-    height: 175px;
-    width: 175px;
-    filter: grayscale(75%);
-    margin: .2em .2em;
-}
-
-input{
-    display: none;
-}
-.sdg:hover{
-    filter: grayscale(0%);
-}
-
-input:checked + .sdg{
-    filter: grayscale(0%);
-}
