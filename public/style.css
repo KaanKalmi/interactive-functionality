@@ -34,3 +34,21 @@ h2, h3 {
 a{
     color: var(--secondary-color);
 }
+
+.sdg{
+    height: 175px;
+    width: 175px;
+    filter: grayscale(75%);
+    margin: .2em .2em;
+}
+
+input{
+    display: none;
+}
+.sdg:hover{
+    filter: grayscale(0%);
+}
+
+input:checked + .sdg{
+    filter: grayscale(0%);
+}
