@@ -21,6 +21,3 @@ input{
 input:checked + .sdg, .sdg:hover{
     filter: grayscale(0%);
 }
-
-
-

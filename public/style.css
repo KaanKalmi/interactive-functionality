@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
 @import url('nav.css');
 @import url('sdg.css');
+
 :root {
-    --bg-color: #171717;
+    --bg-color: #1d1d1d;
     --text-color: #CECECE;
     --primary-color: #7adaa7;
     --secondary-color: #a0e5cd;
@@ -31,7 +32,4 @@ h2, h3 {
     font-style: normal;
 }
 
-a{
-    color: var(--secondary-color);
-}
-
+a { color: var(--secondary-color); }
