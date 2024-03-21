@@ -2,21 +2,14 @@
     text-align: center;
 }
 
-.hero{
-    display: block;
-    margin: auto;
-    padding: 2em;
-    width: 550px;
-    float: left;
-}
-
 .sdg-container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 2em;
+    padding: 3em;
+    margin: 2em;
 }
 
 input{
@@ -32,4 +25,18 @@ input{
 
 input:checked + .sdg, .sdg:hover{
     filter: grayscale(0%);
+}
+
+.btn{
+    display: block;
+    margin: auto;
+    padding: 1em;
+    width: 200px;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
 }

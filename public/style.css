@@ -34,4 +34,4 @@ h2, h3 {
     color: var(--primary-color);
 }
 
-a { color: var(--secondary-color); }
+a { color: var(--primary-color); }
