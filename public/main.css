@@ -1,10 +1,22 @@
+#count{
+    text-align: center;
+}
+
+.hero{
+    display: block;
+    margin: auto;
+    padding: 2em;
+    width: 550px;
+    float: left;
+}
+
 .sdg-container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    flex-grow: .5 0 25%;
+    padding: 2em;
 }
 
 input{
