@@ -12,8 +12,9 @@
     margin: 2em;
 }
 
-input.checkbox{
-    display: none;
+.checkbox{
+    /*hide it and make the border come on around the svg when tabbed on*/
+    border: 1px solid var(--secondary-color);
 }
 
 .sdg{
