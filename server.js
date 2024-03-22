@@ -49,4 +49,8 @@ app.listen(app.get('port'), function() {
 })
 
 // POST route aanmaken voor `t opslaan van SDG`s met een score, per bedrijf, per stakeholder
-  
+app.post('/', function(request, response) {
+    const selectedSdgs = request.body.sdg; //niet af, weet niet of t 100% klopt
+    console.log(selectedSdgs); //niet af, weet niet of t 100% klopt
+    response.redirect('/'); //niet af, weet niet of t 100% klopt
+})
