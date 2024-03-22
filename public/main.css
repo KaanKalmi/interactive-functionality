@@ -12,7 +12,7 @@
     margin: 2em;
 }
 
-input{
+input.checkbox{
     display: none;
 }
 

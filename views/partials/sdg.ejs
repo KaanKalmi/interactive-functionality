@@ -1,6 +1,14 @@
-<% sdg.forEach(function(sdg) { %>
-	<label>
-		<input type="checkbox">
-		<img src="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>" alt="<%= sdg.title %>" class="sdg">	
-	</label>
-<% }) %>
+<h2> Select your SDG`s here</h2>
+<p id="count">0 checkboxes selected</p>
+<script defer src="script.js"></script>
+<section class="sdg-container">
+<form>
+	<% sdg.forEach(function(sdg) { %>
+		<label>
+			<input type="checkbox" class="checkbox">
+			<img src="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>" alt="<%= sdg.title %>" class="sdg">
+		</label>
+		<% }) %>
+			<input type="submit" value="Submit" class="btn">
+</form>
+</section>
