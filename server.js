@@ -48,9 +48,16 @@ app.listen(app.get('port'), function() {
     console.log(`Application started on http://localhost:${app.get('port')}`)
 })
 
-// POST route aanmaken voor `t opslaan van SDG`s met een score, per bedrijf, per stakeholder
-app.post('/', function(request, response) {
-    const selectedSdgs = request.body.sdg; //niet af, weet niet of t 100% klopt
-    console.log(selectedSdgs); //niet af, weet niet of t 100% klopt
-    response.redirect('/'); //niet af, weet niet of t 100% klopt
+
+app.post('/', async (req, res) => { //post route naar / met response request
+    console.log(req.body); // log request body in console
+    const sdgId = req.body.sdg; // haal sdg uit request body
+    try {  
+        await sdgId.save(); // sla sdg op
+        res.redirect('/scoreboard'); // redirect naar scoreboard
+    } catch(e) { // error handling
+        console.log(error); // log error in console
+        res.redirect('/'); // redirect naar home
+    }
 })
+// Waarom werkt het nog niet?
