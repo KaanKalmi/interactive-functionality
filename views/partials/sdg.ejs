@@ -5,7 +5,7 @@
 <form>
 	<% sdg.forEach(function(sdg) { %>
 		<label>
-			<input type="checkbox" class="checkbox">
+			<input type="checkbox" class="checkbox" tabindex="0">
 			<img src="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>" alt="<%= sdg.title %>" class="sdg">
 		</label>
 		<% }) %>

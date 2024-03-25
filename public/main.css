@@ -13,19 +13,22 @@
 }
 
 .checkbox{
-    /*hide it and make the border come on around the svg when tabbed on*/
-    border: 1px solid var(--secondary-color);
+    opacity: 0;
 }
 
+.checkbox:focus + .sdg{
+    border: 2px solid var(--primary-color);
+}
 .sdg{
     height: 175px;
     width: 175px;
-    filter: grayscale(95%);
+    filter: saturate(25%);
     margin: .2em .2em;
+
 }
 
 input:checked + .sdg, .sdg:hover{
-    filter: grayscale(0%);
+    filter: saturate(100%);
 }
 
 .btn{

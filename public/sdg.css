@@ -1,0 +1,23 @@
+.sdg-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: .5 0 25%;
+}
+
+input{
+    display: none;
+}
+
+.sdg{
+    height: 175px;
+    width: 175px;
+    filter: grayscale(95%);
+    margin: .2em .2em;
+}
+
+input:checked + .sdg, .sdg:hover{
+    filter: grayscale(0%);
+}
