@@ -2,13 +2,13 @@
 <p id="count">0 checkboxes selected</p>
 <script defer src="script.js"></script>
 <section class="sdg-container">
-<form>
-	<% sdg.forEach(function(sdg) { %>
-		<label>
-			<input type="checkbox" class="checkbox" tabindex="0">
-			<img src="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>" alt="<%= sdg.title %>" class="sdg">
-		</label>
+	<form method="POST" action="/">
+		<% sdgs.forEach(function(sdg) { %>
+			<label>
+				<input type="checkbox" class="checkbox" tabindex="0" name="sdg" value="<%= sdg.number%>">
+				<img src="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>" alt="<%= sdg.title %>" class="sdg">
+			</label>
 		<% }) %>
-			<input type="submit" value="Submit" class="btn">
-</form>
+		<input type="submit" value="Submit" class="btn">
+	</form>
 </section>

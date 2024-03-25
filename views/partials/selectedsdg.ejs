@@ -1,2 +1,13 @@
 iets met sdg check true ofzo?
 <!-- MOET AFGEMAAKT WORDEN-->
+<!--
+            sdg
+     score score score
+-->
+<section class="score-container">
+    <% sdg.forEach(sdg => { %>
+        <article>
+            <picture> <img src="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>" alt="<%= sdg.title %>" class="sdg"> </picture> 
+        </article>
+    <% }); %>
+</section>
