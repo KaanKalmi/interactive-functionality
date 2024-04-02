@@ -21,19 +21,19 @@ app.use(express.urlencoded({ extended: true }))
 
 // Stel het basis endpoint in
 const apiUrl = 'https://fdnd-agency.directus.app/items'
-const sdgData = await fetchJson(apiUrl + '/hf_sdgs')
-const stakeholdersData = await fetchJson(apiUrl + '/hf_stakeholders/1')
-const scoresData = await fetchJson(apiUrl + '/hf_scores')
-const companiesData = await fetchJson(apiUrl + '/hf_companies/1')
+const sdgs = await fetchJson(apiUrl + '/hf_sdgs')
+const stakeholders = await fetchJson(apiUrl + '/hf_stakeholders/1')
+const scores = await fetchJson(apiUrl + '/hf_scores')
+const companies = await fetchJson(apiUrl + '/hf_companies/1')
 
-console.log(companiesData.data.name)
+console.log(companies.data.name)
 
 app.get('/', function (request, response) {
     response.render('index', {
-        sdgs: sdgData.data,
-        stakeholder: stakeholdersData.data,
-        score: scoresData.data,
-        company: companiesData.data
+        sdgs: sdgs.data,
+        stakeholder: stakeholders.data,
+        score: scores.data,
+        company: companies.data
     })
 })
 
@@ -57,10 +57,10 @@ app.post('/', (req, res) => { //post route naar / met response request
 })
 
 app.get('/score', function (request, response) {
-    const filteredsdgs = sdgData.data.filter(sdg => request.query.sdgIds.includes(sdg.number)) // filter sdgs op basis van query van app.post
+    const filteredsdgs = sdgs.data.filter(sdg => request.query.sdgIds.includes(sdg.number)) // filter sdgs op basis van query van app.post
     response.render('score', {
         sdg: filteredsdgs, // filter sdgs op basis van query
-        stakeholder: stakeholdersData.data,
-        score: scoresData.data,
+        stakeholder: stakeholders.data,
+        score: scores.data,
     })
 })

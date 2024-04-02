@@ -1,11 +1,22 @@
 <section class="score-container">
     <% sdg.forEach(sdg => { %>
-        <article>
+    <article>
             <h3><%= sdg.title %></h3>
             <picture> <img src="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>" alt="<%= sdg.title %>" class="sdg"> </picture> 
             <form>
                 <label>
-                    <input type="range" min="-5" max="5" name="score"  tabindex="0">
+                    <select>
+                        <option value="-5">-5</option>
+                        <option value="-4">-4</option>
+                        <option value="-3">-3</option>
+                        <option value="-2">-2</option>
+                        <option value="-1">-1</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                 </label>
                 <% }); %>
                 <input type="submit" value="Submit" class="btn">

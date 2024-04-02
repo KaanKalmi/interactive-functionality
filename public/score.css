@@ -1,20 +1,38 @@
-.score-container{
+.score-container {
+    padding: 2em;
+    margin: 1em;
+    & article {
+        display: flex;
+        flex-direction: column;
+        & picture {
+            display: flex;
+            justify-content: center;
+            & img {
+                border-radius: 5px;
+            }
+            & form {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+select {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 3em;
-    margin: 2em;
+    flex-direction: column;
+    margin: 1em;
+    width: 175px;
 }
 
-.sdg{
+.sdg {
     height: 175px;
     width: 175px;
-    margin: .2em .2em;   
+    margin: .2em .2em;
 }
 
-.btn{
+.btn {
     display: block;
     margin: auto;
     padding: 1em;
