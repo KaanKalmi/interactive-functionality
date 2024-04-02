@@ -56,11 +56,21 @@ app.post('/', (req, res) => { //post route naar / met response request
     }
 })
 
-app.get('/score', function (request, response) {
+app.get('/score', function (req, res) {
     const filteredsdgs = sdgs.data.filter(sdg => request.query.sdgIds.includes(sdg.number)) // filter sdgs op basis van query van app.post
-    response.render('score', {
+    res.render('score', {
         sdg: filteredsdgs, // filter sdgs op basis van query
         stakeholder: stakeholders.data,
         score: scores.data,
     })
+})
+
+app.post('/score', function (req, res) { //post route naar / met response request
+    console.log(req.body); // log request body in console
+    const scoreindicator = req.body.scores; // haal score uit request body
+    if (scoreindicator) {
+        res.redirect(`/score?scores=${scores}`); // redirect naar index met de score die opgeslagen word in directus
+    } else {
+        res.redirect('/score?error=true'); // redirect naar score met error
+    }
 })
