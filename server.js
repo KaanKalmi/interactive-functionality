@@ -59,9 +59,9 @@ app.post('/', (req, res) => { //post route naar / met response request
 app.get('/score', function (req, res) {
     const filteredsdgs = sdgs.data.filter(sdg => request.query.sdgIds.includes(sdg.number)) // filter sdgs op basis van query van app.post
     res.render('score', {
-        sdg: filteredsdgs, // filter sdgs op basis van query
-        stakeholder: stakeholders.data,
-        score: scores.data,
+        sdgs: filteredsdgs, // filter sdgs op basis van query
+        stakeholders: stakeholders.data,
+        scores: scores.data,
     })
 })
 
