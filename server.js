@@ -31,8 +31,8 @@ console.log(companies.data.name)
 app.get('/', function (request, response) {
     response.render('index', {
         sdgs: sdgs.data,
-        stakeholder: stakeholders.data,
-        score: scores.data,
+        stakeholders: stakeholders.data,
+        scores: scores.data,
         company: companies.data
     })
 })
@@ -48,7 +48,7 @@ app.listen(app.get('port'), function () {
 
 app.post('/', (req, res) => { //post route naar / met response request
     console.log(req.body); // log request body in console
-    const sdgId = req.body.sdg; // haal sdg uit request body
+    const sdgId = req.body.sdgs; // haal sdg uit request body
     if (sdgId) {
         res.redirect(`/score?sdgIds=${sdgId}`); // redirect naar scoreboard net de sdgId
     } else {
