@@ -11,7 +11,6 @@ function updateCount() {
     countElement.textContent = count + ' checkboxes selected';
 }
 
-
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', function() {
         if (countCheckedCheckboxes() > 5) {

@@ -7,9 +7,7 @@
         & picture {
             display: flex;
             justify-content: center;
-            & img {
-                border-radius: 5px;
-            }
+            & img { border-radius: 5px; }
             & form {
                 display: flex;
                 flex-direction: column;

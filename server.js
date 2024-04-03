@@ -65,12 +65,13 @@ app.get('/score', function (req, res) {
     })
 })
 
-app.post('/score', function (req, res) { //post route naar / met response request
-    console.log(req.body); // log request body in console
-    const scoreindicator = req.body.scores; // haal score uit request body
-    if (scoreindicator) {
-        res.redirect(`/score?scores=${scores}`); // redirect naar index met de score die opgeslagen word in directus
-    } else {
-        res.redirect('/score?error=true'); // redirect naar score met error
-    }
-})
+// Hoeft nog niet, kan er niks mee!
+// app.post('/score', function (req, res) { //post route naar / met response request
+//     console.log(req.body); // log request body in console
+//     const scoreindicator = req.body.scores; // haal score uit request body
+//     if (scoreindicator) {
+//         res.redirect(`/score?scores=${scores}`); // redirect naar index met de score die opgeslagen word in directus
+//     } else {
+//         res.redirect('/score?error=true'); // redirect naar score met error
+//     }
+// })
