@@ -17,38 +17,40 @@ app.set('views', './views')
 app.use(express.static('public'))
 
 // Zorg dat werken met request data makkelijker wordt
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({extended: true}))
+
 
 // Stel het basis endpoint in
 const apiUrl = 'https://fdnd-agency.directus.app/items'
-const sdgs = await fetchJson(apiUrl + '/hf_sdgs')
-const stakeholders = await fetchJson(apiUrl + '/hf_stakeholders/1')
-const scores = await fetchJson(apiUrl + '/hf_scores')
-const companies = await fetchJson(apiUrl + '/hf_companies/1')
 
-console.log(companies.data.name)
+const sdgData = await fetchJson(apiUrl + '/hf_sdgs')
+const stakeholdersData = await fetchJson(apiUrl + '/hf_stakeholders/1')
+const scoresData = await fetchJson(apiUrl + '/hf_scores')
+const companiesData = await fetchJson(apiUrl + '/hf_companies/1')
 
-app.get('/', function (request, response) {
-    response.render('index', {
-        sdgs: sdgs.data,
-        stakeholders: stakeholders.data,
-        scores: scores.data,
-        company: companies.data
-    })
+console.log(companiesData.data.name)
+
+app.get('/', function(request, response) {
+        response.render('index', {
+            sdgs: sdgData.data,
+            stakeholder: stakeholdersData.data,
+            score: scoresData.data,
+            company: companiesData.data
+        })
 })
 
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8009)
 
 // Start express op, haal daarbij het zojuist ingestelde poortnummer op
-app.listen(app.get('port'), function () {
-    // Toon een bericht in de console en geef het poortnummer door
+app.listen(app.get('port'), function() {
+  // Toon een bericht in de console en geef het poortnummer door
     console.log(`Application started on http://localhost:${app.get('port')}`)
 })
 
 app.post('/', (req, res) => { //post route naar / met response request
     console.log(req.body); // log request body in console
-    const sdgId = req.body.sdgs; // haal sdg uit request body
+    const sdgId = req.body.sdg; // haal sdg uit request body
     if (sdgId) {
         res.redirect(`/score?sdgIds=${sdgId}`); // redirect naar scoreboard net de sdgId
     } else {
@@ -56,22 +58,12 @@ app.post('/', (req, res) => { //post route naar / met response request
     }
 })
 
-app.get('/score', function (req, res) {
-    const filteredsdgs = sdgs.data.filter(sdg => request.query.sdgIds.includes(sdg.number)) // filter sdgs op basis van query van app.post
-    res.render('score', {
-        sdgs: filteredsdgs, // filter sdgs op basis van query
-        stakeholders: stakeholders.data,
-        scores: scores.data,
+
+app.get('/score', function(request, response) {
+    const filteredsdgs = sdgData.data.filter(sdg => request.query.sdgIds.includes(sdg.number)) // filter sdgs op basis van query van app.post
+    response.render('score', {
+        sdg:filteredsdgs, // filter sdgs op basis van query
+        stakeholder: stakeholdersData.data, 
+        score: scoresData.data, 
     })
 })
-
-// Hoeft nog niet, kan er niks mee!
-// app.post('/score', function (req, res) { //post route naar / met response request
-//     console.log(req.body); // log request body in console
-//     const scoreindicator = req.body.scores; // haal score uit request body
-//     if (scoreindicator) {
-//         res.redirect(`/score?scores=${scores}`); // redirect naar index met de score die opgeslagen word in directus
-//     } else {
-//         res.redirect('/score?error=true'); // redirect naar score met error
-//     }
-// })
